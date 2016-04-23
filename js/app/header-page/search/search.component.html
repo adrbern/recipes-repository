@@ -1,0 +1,116 @@
+<div class="banner wow fadeInUp" data-wow-delay="0.4s" *ngIf="selectedAdvanceSearch">
+    <div class="container_wrap">
+        <h1>¿De qué dispones?</h1>
+        <div class="dropdown-buttons">
+            <div class="dropdown-button">
+                <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                    <option value="0"> 15 minutos</option>
+                    <option value="1"> 30 minutos</option>
+                    <option value="2"> 40 minutos</option>
+                    <option value="3"> 1 hora</option>
+                    <option value="4"> 2 horas</option>
+                    <option value="5"> 3 horas </option>
+                    <option value="6"> Más de 3 horas</option>
+                </select>
+            </div>
+        </div>
+        <form>
+            <input type="text" value="Aceite, sal, ternera, ...'" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Aceite, sal, ternera, ...';}">
+
+            <div class="dropdown-buttons">
+                <div class="dropdown-button">
+                    <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                        <option value="0"> Estado de ánimo</option>
+                        <option value="1"> Triste</option>
+                        <option value="2"> Contento</option>
+                        <option value="3"> Nervioso</option>
+                        <option value="4"> Excitado</option>
+                        <option value="5"> Pletórico </option>
+                        <option value="6"> Normal</option>
+                        <option value="6"> Aburrido</option>
+                    </select>
+                </div>
+                <div class="dropdown-button">
+                    <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                        <option value="0"> Evento especial</option>
+                        <option value="1"> Navidad</option>
+                        <option value="2"> Semana Santa</option>
+                        <option value="3"> San Valentín</option>
+                        <option value="4"> Aniversario</option>
+                        <option value="5"> Cumpleaños </option>
+                        <option value="6"> Graduación</option>
+                        <option value="6"> Boda</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="dropdown-buttons">
+
+            </div>
+
+            <div class="dropdown-buttons">
+                <div class="dropdown-button">
+                    <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                        <option value="0"> Acompañantes</option>
+                        <option value="1"> Amigo/a</option>
+                        <option value="2"> Novio/a</option>
+                        <option value="3"> Esposa/marido</option>
+                        <option value="4"> Padres</option>
+                        <option value="5"> Abuelos </option>
+                        <option value="6"> Hermano/a</option>
+                        <option value="6"> Familia</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="contact_btn">
+                <a href="./resultadoAvanzado.html"><label class="btn1 btn-2 btn-2g">Buscar</label></a>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+        <br>
+        <br>
+    </div>
+</div>
+        //////////////////////////////////////////////////////////////////////////////
+
+<div class="banner wow fadeInUp" data-wow-delay="0.4s" *ngElse="selectedAdvanceSearch">
+    <div class="container_wrap">
+        <h1>¿De qué dispones?</h1>
+        <div class="dropdown-buttons">
+            <div class="dropdown-button">
+                <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                    <option value="0"> 15 minutos</option>
+                    <option value="1"> 30 minutos</option>
+                    <option value="2"> 40 minutos</option>
+                    <option value="3"> 1 hora</option>
+                    <option value="4"> 2 horas</option>
+                    <option value="5"> 3 horas </option>
+                    <option value="6"> Más de 3 horas</option>
+                </select>
+            </div>
+
+            <!--
+            <div class="dropdown-button">
+             <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+               <option value="0">Education</option>
+               <option value="1">tempor</option>
+               <option value="2">congue</option>
+               <option value="3">mazim </option>
+               <option value="4">mutationem</option>
+               <option value="5">hendrerit </option>
+               <option value="5"></option>
+               <option value="5"></option>
+             </select>
+            </div>
+            -->
+        </div>
+        <form>
+            <input type="text" value="Aceite,sal,ternera ..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Keyword, name, date, ...';}">
+            <div class="contact_btn">
+                <a href="./living.html"><label class="btn1 btn-2 btn-2g">Buscar</label></a>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+    </div>
+</div>
