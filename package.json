@@ -1,0 +1,20 @@
+{
+  "name": "recipes-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrbern/recipes-repository.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrbern/recipes-repository/issues"
+  },
+  "homepage": "https://github.com/adrbern/recipes-repository#readme"
+}
