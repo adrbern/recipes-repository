@@ -4,7 +4,6 @@ import { HeaderPageComponent } from './header-page/header-page.component';
 import { RecommendReceiptService } from './recommend-receip/recommend-receip.service';
 //import { DashboardComponent } from './dashboard.component';
 import { RecommendReceiptComponent } from './recommend-receip/recommend-receip.component';
-import { RecommendListComponent } from './recommend-list/recommend-list.component';
 //import { HeroDetailComponent } from './hero-detail.component';
 
 import { RecommendListComponent } from './recommend-list/recommend-list.component';
@@ -12,7 +11,7 @@ import {ROUTER_DIRECTIVES, RouteConfig, Route, Router, RouterOutlet, ROUTER_PROV
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'js/app/app.component.html',
+    templateUrl: 'public/js/app/app.component.html',
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS
