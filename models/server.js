@@ -1,8 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const { dbConnection } = require('../database/config');
+import express from 'express';
+import history from 'connect-history-api-fallback';
+import cors from 'cors';
+import { dbConnection } from '../database/config';
 
-class Server {
+export default class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
@@ -35,6 +36,9 @@ class Server {
         // Lectura y parseo del body
         this.app.use(express.json());
 
+        // Middleware para Vue.js router modo history
+        this.app.use(history());
+        
         // Directorio estatico
         this.app.use(express.static('public'));
     }
@@ -45,5 +49,3 @@ class Server {
         });
     }
 }
-
-module.exports = Server;
