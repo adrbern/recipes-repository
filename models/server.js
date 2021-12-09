@@ -1,9 +1,9 @@
-import express from 'express';
-import history from 'connect-history-api-fallback';
-import cors from 'cors';
-import { dbConnection } from '../database/config';
+const express = require('express');
+const cors = require('cors');
+const history = require('connect-history-api-fallback');
+const { dbConnection } = require('../database/config');
 
-export default class Server {
+class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
@@ -49,3 +49,5 @@ export default class Server {
         });
     }
 }
+
+module.exports = Server;
