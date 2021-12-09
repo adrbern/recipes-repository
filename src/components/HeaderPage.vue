@@ -7,8 +7,9 @@
                 <div class="menu">
                         <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
                         <ul class="nav" id="nav">
-                                <li class="active"><a href="index.html">Inicio</a></li>
+                                <li class="active"><a href="./index.html">Inicio</a></li>
                                 <li><a href="./buscadorAvanzado.html">Buscador Avanzado</a></li>
+                                <li><a href="./index.html">Perfil</a></li>
                                 <div class="clearfix"></div>
                         </ul>
                 </div>

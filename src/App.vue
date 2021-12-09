@@ -1,14 +1,22 @@
 <template>
-  <MyApp>loading my app</MyApp>
+  <div>
+        <HeaderPage>header loading...</HeaderPage>
+
+        <router-view></router-view>
+
+        <FooterPage>footer loading...</FooterPage>
+    </div>
 </template>
 
 <script>
-import MyApp from './components/MyApp.vue'
+import HeaderPage from './components/HeaderPage';
+import FooterPage from './components/FooterPage';
 
 export default {
   name: 'App',
   components: {
-    MyApp
+    HeaderPage,
+    FooterPage
   }
 }
 </script>
