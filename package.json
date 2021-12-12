@@ -2,23 +2,14 @@
   "name": "recipes-repository",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "author": "",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "start": "vue-cli-service serve"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adrbern/recipes-repository.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/adrbern/recipes-repository/issues"
-  },
-  "homepage": "https://github.com/adrbern/recipes-repository#readme",
+  "main": "app.js",
   "dependencies": {
     "@vue/cli": "^4.5.15",
     "axios": "^0.24.0",
@@ -40,12 +31,21 @@
     "vue-template-compiler": "^2.6.14"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-babel": "^4.5.15",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/test-utils": "^2.0.0-0",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0"
+  },
+  "bugs": {
+    "url": "https://github.com/adrbern/recipes-repository/issues"
+  },
+  "homepage": "https://github.com/adrbern/recipes-repository#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrbern/recipes-repository.git"
   }
 }
