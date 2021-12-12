@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-
 import Home from '../views/MyApp';
 import About from '../views/About';
 
