@@ -2,7 +2,7 @@
   <div>
         <HeaderPage>header loading...</HeaderPage>
 
-        <router-view></router-view>
+        <router-view>router view loading</router-view>
 
         <FooterPage>footer loading...</FooterPage>
     </div>
