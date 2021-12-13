@@ -9,17 +9,18 @@ import SignIn from '../views/SignIn';
 import About from '../views/About';
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/advanced-search', component: AdvancedSearch },
-    { path: '/profile', component: Profile },
-    { path: '/recipe', component: Recipe },
-    { path: '/new-recipe', component: NewRecipe },
-    { path: '/sign-in', component: SignIn },
-    { path: '/about', component: About }
+    { path: '/', name: 'home', component: Home },
+    { path: '/advanced-search', name: 'advance-search', component: AdvancedSearch },
+    { path: '/profile', name: 'profile', component: Profile },
+    { path: '/recipe', name: 'recipe', component: Recipe },
+    { path: '/new-recipe', name: 'new-recipe', component: NewRecipe },
+    { path: '/sign-in', name: 'sign-in', component: SignIn },
+    { path: '/about', name: 'about', component: About }
 ];
 
 const router = createRouter({
     history: createWebHashHistory(),
+    mode: 'history',
     routes,
 })
 

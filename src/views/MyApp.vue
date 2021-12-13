@@ -10,7 +10,7 @@
 
             <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
             <div class="container">
-                <router-outlet></router-outlet>
+                aaaaa
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@ import Submenu from '../components/Submenu.vue';
 import FooterPage from '../components/FooterPage.vue'
 
 export default {
-  name: 'MyApp',
+  name: 'Home',
   components: {
     HeaderPage,
     SearchRecipes,
