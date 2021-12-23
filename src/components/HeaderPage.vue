@@ -2,14 +2,14 @@
     <div class="header">
         <div class="header-left">
                 <div class="logo">
-                        <a href="index.html"><img src="images/logo.png" alt=""/></a>
+                        <router-link to="home"><img src="images/logo.png" alt=""/></router-link>
                 </div>
                 <div class="menu">
                         <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
                         <ul class="nav" id="nav">
-                                <li class="active"><a href="./index.html">Inicio</a></li>
-                                <li><a href="./buscadorAvanzado.html">Buscador Avanzado</a></li>
-                                <li><a href="./index.html">Perfil</a></li>
+                                <li class="active"><router-link to="home">Inicio</router-link></li>
+                                <li><router-link to="advanced-search">Buscador avanzado</router-link></li>
+                                <li><router-link to="profile">Perfil</router-link></li>
                                 <div class="clearfix"></div>
                         </ul>
                 </div>

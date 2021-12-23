@@ -1,13 +1,7 @@
 <template>
     <div>
-        <div class="banner wow fadeInUp" data-wow-delay="0.4s">
-           <SearchRecipes>search loading...</SearchRecipes>
-        </div>
-
-        <!--Submenu>submenu loading...</Submenu-->
-
-            <div id="CUERPO">Loading...</div>
-
+        <SearchRecipes>search loading...</SearchRecipes>
+        <Submenu>search loading...</Submenu>
             <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
             <div class="container">
                 aaaaa

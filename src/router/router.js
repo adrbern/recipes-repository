@@ -9,11 +9,11 @@ import SignIn from '../views/SignIn';
 import About from '../views/About';
 
 const routes = [
-    { path: '/', name: 'home', component: Home },
-    { path: '/advanced-search', name: 'advance-search', component: AdvancedSearch },
+    { path: '/home', name: 'home', component: Home },
+    { path: '/advanced-search', name: 'advanced-search', component: AdvancedSearch },
     { path: '/profile', name: 'profile', component: Profile },
     { path: '/recipe', name: 'recipe', component: Recipe },
-    { path: '/new-recipe', name: 'new-recipe', component: NewRecipe },
+    { path: '/new-recipe', name: 'newRecipe', component: NewRecipe },
     { path: '/sign-in', name: 'sign-in', component: SignIn },
     { path: '/about', name: 'about', component: About }
 ];
