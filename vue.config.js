@@ -1,6 +1,10 @@
 module.exports = {
     devServer: {
-    disableHostCheck: true
+      watchOptions: {
+          host: 'localhost',
+          poll: true
+      },
+      disableHostCheck: true
     }
 }
 

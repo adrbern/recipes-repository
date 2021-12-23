@@ -1,10 +1,10 @@
 <template>
   <div>
-        <HeaderPage>header loading...</HeaderPage>
+    <HeaderPage>header loading...</HeaderPage>
 
-        <router-view>router view loading</router-view>
+    <router-view />
 
-        <FooterPage>footer loading...</FooterPage>
+    <FooterPage>footer loading...</FooterPage>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   name: 'App',
   components: {
     HeaderPage,
-    FooterPage
+    FooterPage,
   }
 }
 </script>
