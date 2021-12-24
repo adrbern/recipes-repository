@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
+    <div class="col-md-4 margin-verrtical7 wow fadeInLeft" data-wow-delay="0.4s">
         <div class="living_box"><a href="./education.html">
         <img src="images/l4.jpg" class="img-responsive" alt=""/>
     <span class="sale-box">

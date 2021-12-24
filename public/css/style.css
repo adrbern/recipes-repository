@@ -371,6 +371,14 @@ input:focus {
 a#loginButton img {
 	vertical-align: bottom;
 }
+
+.margin-verrtical5 { margin-top: 5px; margin-bottom: 5px;}
+.margin-verrtical7 { margin-top: 7px; margin-bottom: 7px;}
+.margin-verrtical10 { margin-top: 10px; margin-bottom: 10px;}
+.margin-verrtical15 { margin-top: 15px; margin-bottom: 15px;}
+.margin-verrtical17 { margin-top: 17px; margin-bottom: 17px;}
+.margin-verrtical30 { margin-top: 30px; margin-bottom: 30px;}
+
 .banner{
 	background: url(../images/banner6.jpg) no-repeat center top;
 	background-size:cover;
