@@ -12,11 +12,12 @@
   "main": "app.js",
   "dependencies": {
     "@vue/cli": "^4.5.15",
-    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/test-utils": "^2.0.0-0",
+    "ansi-regex": "^6.0.1",
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.3",
