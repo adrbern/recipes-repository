@@ -1,4 +1,5 @@
 <template>
+<!-- indexar componentes -->
     <div class="col-md-8 wow fadeInRight" data-wow-delay="0.4s">
         <div class="educate_grid">
             <RecipeStepDetail>Recipe step detail... </RecipeStepDetail>
