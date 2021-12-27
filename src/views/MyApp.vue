@@ -11,13 +11,7 @@
             <RecipeCard>ficha receta</RecipeCard>
           </div>
         </div>
-        <!-- LLevarlo a un componente container seguramente -->
-        <div class="living_bottom">
-   	      <div class="container">
-             <h2 class="title block-title">Recetas Relacionadas</h2>
-             <RecipeRelatedCard>receta relacionada loading ... </RecipeRelatedCard>
-          </div>
-        </div>
+        <RecipeRelatedContainer>Recipe Related Container ... </RecipeRelatedContainer>    
       </div>
     </div>
 </template>
@@ -27,7 +21,7 @@ import HeaderPage from '../components/HeaderPage.vue';
 import SearchRecipes from '../components/SearchRecipes.vue';
 import Submenu from '../components/Submenu.vue';
 import RecipeCard from '../components/RecipeCard.vue';
-import RecipeRelatedCard from '../components/RecipeRelatedCard.vue';
+import RecipeRelatedContainer from '../components/RecipeRelatedContainer.vue';
 import FooterPage from '../components/FooterPage.vue';
 
 export default {
@@ -37,7 +31,7 @@ export default {
     SearchRecipes,
     Submenu,
     RecipeCard,
-    RecipeRelatedCard,
+    RecipeRelatedContainer,
     FooterPage
   }
 }
