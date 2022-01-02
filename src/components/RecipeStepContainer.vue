@@ -1,11 +1,7 @@
 <template>
 <!-- indexar componentes -->
     <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
-        <RecipeStep>Recipe step ... </RecipeStep>
-        <RecipeStep>Recipe step ... </RecipeStep>
-        <RecipeStep>Recipe step ... </RecipeStep>
-        <RecipeStep>Recipe step ... </RecipeStep>
-        <RecipeStep>Recipe step ... </RecipeStep>
+        <RecipeStep v-for="item in ToDoItems">Recipe step {{item}}... </RecipeStep>
     </div>
 </template>
 
@@ -16,6 +12,11 @@ export default {
   name: 'RecipeStepContainer',
   components: {
     RecipeStep
+  },
+  data() {
+    return {
+      ToDoItems: [{}, {}]
+    }
   }
 }
 </script>

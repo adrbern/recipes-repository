@@ -5,10 +5,7 @@
       <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
         <div class="living_middle">
           <div class="container">
-            <RecipeCard>ficha receta</RecipeCard>
-            <RecipeCard>ficha receta</RecipeCard>
-            <RecipeCard>ficha receta</RecipeCard>
-            <RecipeCard>ficha receta</RecipeCard>
+            <RecipeCard v-for="item in ToDoItems">ficha receta</RecipeCard>
           </div>
         </div>
         <RecipeRelatedContainer>Recipe Related Container ... </RecipeRelatedContainer>    
@@ -33,6 +30,11 @@ export default {
     RecipeCard,
     RecipeRelatedContainer,
     FooterPage
+  },
+  data() {
+    return {
+      ToDoItems: [{}, {}]
+    }
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <div class="living_bottom">
         <div class="container">
             <h2 class="title block-title">Recetas Relacionadas</h2>
-            <RecipeRelatedCard>receta relacionada loading ... </RecipeRelatedCard>
+            <RecipeRelatedCard v-for="(item, index) in ToDoItems" :align="index">receta relacionada loading ... </RecipeRelatedCard>
         </div>
     </div>
 </template>
@@ -14,6 +14,11 @@ export default {
   name: 'RecipeRelatedContainer',
   components: {
       RecipeRelatedCard
+  },
+  data() {
+    return {
+      ToDoItems: [{}, {}]
+    }
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-6 post_left wow fadeInLeft" data-wow-delay="0.4s">
+    <div class="col-md-6 post_left wow" :class="alignClass" data-wow-delay="0.4s">
         <div class="mask1"><img src="images/pic4.jpg" alt="image" class="img-responsive zoom-img" /></div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, sem eget sagittis sagittis, nisl magna sodales eros, ut feugiat velit velit non turpis. Cras eu nibh dapibus justo fringilla   <a href="#">More</a></p>
         <div class="divider"></div>
@@ -21,6 +21,12 @@
 export default {
   name: 'RecipeRelatedCard',
   components: {
+  },
+  props: ['align'],
+  computed: {
+      alignClass() {
+          return Number(this.align) ? "fadeInRight" : "fadeInLeft";
+      }
   }
 }
 </script>
