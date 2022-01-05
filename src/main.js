@@ -1,14 +1,29 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/router'
-import VueI18n from 'vue-i18n';
+import { createI18n } from "vue-i18n";
 
-const i18n = new VueI18n({
-    locale: 'en',
+const messages = {
+    en: {
+        message: {
+        value: 'example'
+        }
+    },
+    es: {
+        message: {
+        value: 'ejemplo'
+        }
+    }
+}
+
+const i18n = createI18n({
+    legacy: false,
+    locale: "ja",
     messages
 });
 
-createApp(App)
+
+const app = createApp(App)
     .use(router)
     .use(i18n)
     .mount('#app');
