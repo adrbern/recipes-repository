@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs');
 const { generateJWT } = require('../helpers/generate-jwt');
 
 const login = async(req, res) => {
-    const { correo, password } = req.body; 
+    const { email, password } = req.body; 
 
     try {
         // Verificar si el email existe
