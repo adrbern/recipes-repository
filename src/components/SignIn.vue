@@ -1,31 +1,31 @@
 <template>
-    <div id="loginContainer">
-        <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
-        <div id="loginBox">
-            <div id="loginForm">
-                <fieldset id="body">
-                    <fieldset>
-                            <label for="email">Usuario</label>
-                            <input type="text" name="email" id="email" v-model="email">
-                    </fieldset>
-                    <fieldset>
-                            <label for="password">Contraseña</label>
-                            <input type="password" name="password" id="password" v-model="password">
+    <div id="logged" v-if="token"><a href="./entertain.html"><img src="images/logged.png"><span>Federico</span></a></div>
+    <div id="loginContainer" v-else>
+            <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
+            <div id="loginBox">
+                <div id="loginForm">
+                    <fieldset id="body">
+                        <fieldset>
+                                <label for="email">Usuario</label>
+                                <input type="text" name="email" id="email" v-model="email">
                         </fieldset>
-                    <a><input type="submit" id="login" value="Iniciar " v-on:click="onLogin"></a>
-                    <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Recordar</i></label>
-                </fieldset>
-                    <span><a href="#">Olvidaste tu contraseña?</a></span>
+                        <fieldset>
+                                <label for="password">Contraseña</label>
+                                <input type="password" name="password" id="password" v-model="password">
+                            </fieldset>
+                        <a><input type="submit" id="login" value="Iniciar " v-on:click="onLogin"></a>
+                        <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Recordar</i></label>
+                    </fieldset>
+                        <span><a href="#">Olvidaste tu contraseña?</a></span>
+                </div>
             </div>
-        </div>
-
-        <!--div id="logged"><a href="./entertain.html"><img src="images/logged.png"><span>Federico</span></a></div-->
-
         <div class="clearfix"></div>
     </div>
 </template>
 
 <script>
+import router from "../router/router";
+
 export default {
     name: 'SignIn',
     components: {
@@ -33,26 +33,27 @@ export default {
     data() {
         return {
             email: '',
-            password: ''
+            password: '',
+            token: null
         }
     },
     created () {
-
+        this.token = localStorage.getItem('token');
     },
-    //MIrar setup y comprobar si tiene en el localstorage la sesion del usuario para pintar login o logout
     methods: {
         async onLogin() {
-            // lanzar llamada al back para que tratarlo
             const userLog =  await this.getLogin({
                 email: this.email,
                 password: this.password
             });
+            const token = userLog.token;
 
-            console.log(userLog);
+            this.token = token;
             localStorage.setItem('token', userLog.token);
             localStorage.setItem('email', userLog.user.email);
 
             // refresh componente
+            router.replace({ name: "home" });
         },
         async getLogin(payload) {
             try {
