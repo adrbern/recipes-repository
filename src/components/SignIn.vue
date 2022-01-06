@@ -6,13 +6,13 @@
                 <fieldset id="body">
                     <fieldset>
                             <label for="email">Usuario</label>
-                            <input type="text" name="email" id="email">
+                            <input type="text" name="email" id="email" v-model="email">
                     </fieldset>
                     <fieldset>
                             <label for="password">Contraseña</label>
-                            <input type="password" name="password" id="password">
+                            <input type="password" name="password" id="password" v-model="password">
                         </fieldset>
-                    <a href="./entertain.html"><input type="submit" id="login" value="Iniciar "></a>
+                    <a><input type="submit" id="login" value="Iniciar " v-on:click="onLogin"></a>
                     <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Recordar</i></label>
                 </fieldset>
                     <span><a href="#">Olvidaste tu contraseña?</a></span>
@@ -27,9 +27,50 @@
 
 <script>
 export default {
-  name: 'SignIn',
-  components: {
-  }
+    name: 'SignIn',
+    components: {
+    },
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    created () {
+
+    },
+    //MIrar setup y comprobar si tiene en el localstorage la sesion del usuario para pintar login o logout
+    methods: {
+        async onLogin() {
+            // lanzar llamada al back para que tratarlo
+            const userLog =  await this.getLogin({
+                email: this.email,
+                password: this.password
+            });
+
+            console.log(userLog);
+            localStorage.setItem('token', userLog.token);
+            localStorage.setItem('email', userLog.user.email);
+
+            // refresh componente
+        },
+        async getLogin(payload) {
+            try {
+                let resp = await fetch('http://localhost:8080/api/auth/login', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                resp = await resp.json(); 
+
+                return resp;
+            } catch(e) {
+                console.log(console.warn)
+            };
+        }
+    },
 }
 </script>
 
