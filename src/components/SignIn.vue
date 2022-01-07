@@ -1,5 +1,5 @@
 <template>
-    <div id="logged" v-if="token"><a href="./entertain.html"><img src="images/logged.png"><span>Federico</span></a></div>
+    <div id="logged" v-if="token"><a v-on:click="onLogout"><img src="images/logged.png"><span>Federico</span></a></div>
     <div id="loginContainer" v-else>
             <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
             <div id="loginBox">
@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import router from "../router/router";
-
 export default {
     name: 'SignIn',
     components: {
@@ -51,9 +49,11 @@ export default {
             this.token = token;
             localStorage.setItem('token', userLog.token);
             localStorage.setItem('email', userLog.user.email);
-
-            // refresh componente
-            router.replace({ name: "home" });
+        },
+        async onLogout() {
+            this.token = null;
+            localStorage.removeItem('token');
+            localStorage.removeItem('email');
         },
         async getLogin(payload) {
             try {
