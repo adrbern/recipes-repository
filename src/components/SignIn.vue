@@ -1,5 +1,5 @@
 <template>
-    <div id="logged" v-if="token"><a v-on:click="onLogout"><img src="images/logged.png"><span>Federico</span></a></div>
+    <div id="logged" v-if="token"><a v-on:click="onLogout"><img src="images/logged.png"><span>{{this.name}}</span></a></div>
     <div id="loginContainer" v-else>
             <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
             <div id="loginBox">
@@ -32,11 +32,14 @@ export default {
         return {
             email: '',
             password: '',
-            token: null
+            token: null,
         }
     },
     created () {
-        this.token = localStorage.getItem('token');
+        const { token, name } = JSON.parse(localStorage.getItem('userData') || '');
+
+        this.token = token;
+        this.name = name;
     },
     methods: {
         async onLogin() {
@@ -45,15 +48,20 @@ export default {
                 password: this.password
             });
             const token = userLog.token;
+            const name = userLog.user.name;
 
             this.token = token;
-            localStorage.setItem('token', userLog.token);
-            localStorage.setItem('email', userLog.user.email);
+            this.name = name;
+
+            localStorage.setItem('userData', JSON.stringify({
+                token: userLog.token,
+                email: userLog.user.email,
+                name: userLog.user.name
+            }));
         },
         async onLogout() {
             this.token = null;
-            localStorage.removeItem('token');
-            localStorage.removeItem('email');
+            localStorage.removeItem('userData');
         },
         async getLogin(payload) {
             try {
