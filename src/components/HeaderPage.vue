@@ -9,7 +9,7 @@
                         <ul class="nav" id="nav">
                                 <li class="active"><router-link to="home">Inicio</router-link></li>
                                 <li><router-link to="advanced-search">Buscador avanzado</router-link></li>
-                                <li><router-link to="profile">Perfil</router-link></li>
+                                <li v-if="isLogged"><router-link to="profile">Perfil</router-link></li>
                                 <div class="clearfix"></div>
                         </ul>
                 </div>
@@ -23,12 +23,23 @@
 </template>
 
 <script>
-import SignIn from './SignIn.vue'
+import SignIn from './SignIn.vue';
+import Session from '../services/session';
 
 export default {
   name: 'HeaderPage',
   components: {
     SignIn
+  },
+  data() {
+        return {
+            isLogged: null,
+        }
+  },
+  created (){
+        const { isLogged } = new Session();
+
+        this.isLogged = isLogged;
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div id="logged" v-if="token"><a v-on:click="onLogout"><img src="images/logged.png"><span>{{this.name}}</span></a></div>
+    <div id="logged" v-if="isLogged"><a v-on:click="onLogout"><img src="images/logged.png"><span>{{this.name}}</span></a></div>
     <div id="loginContainer" v-else>
             <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
             <div id="loginBox">
@@ -24,6 +24,9 @@
 </template>
 
 <script>
+import router from '../router/router';
+import Session from '../services/session';
+
 export default {
     name: 'SignIn',
     components: {
@@ -32,13 +35,14 @@ export default {
         return {
             email: '',
             password: '',
-            token: null,
+            isLogged: null,
+            name: null
         }
     },
     created () {
-        const { token, name } = JSON.parse(localStorage.getItem('userData') || '');
+        const { isLogged, name } = new Session();
 
-        this.token = token;
+        this.isLogged = isLogged;
         this.name = name;
     },
     methods: {
@@ -47,21 +51,19 @@ export default {
                 email: this.email,
                 password: this.password
             });
-            const token = userLog.token;
-            const name = userLog.user.name;
-
-            this.token = token;
-            this.name = name;
 
             localStorage.setItem('userData', JSON.stringify({
                 token: userLog.token,
                 email: userLog.user.email,
                 name: userLog.user.name
             }));
+            
+            router.go();
         },
         async onLogout() {
-            this.token = null;
             localStorage.removeItem('userData');
+
+            router.go();
         },
         async getLogin(payload) {
             try {
