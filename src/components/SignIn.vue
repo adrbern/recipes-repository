@@ -71,7 +71,7 @@ export default {
         },
         async getLogin(payload) {
             try {
-                let resp = await fetch('https://recipesontime.herokuapp.com/api/auth/login', {
+                let resp = await fetch('http://localhost/api/auth/login', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'

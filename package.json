@@ -7,7 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "start": "vue-cli-service serve --Host localhost"
+    "start": "concurrently --kill-others \"vue-cli-service serve --Host localhost\" \"node app\""
   },
   "main": "app.js",
   "dependencies": {
@@ -39,6 +39,7 @@
     "vue-template-compiler": "^2.6.14"
   },
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "typescript": "~3.9.3",
     "vue-jest": "^3.0.7"
   },
