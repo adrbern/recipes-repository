@@ -47,18 +47,22 @@ export default {
     },
     methods: {
         async onLogin() {
-            const userLog =  await this.getLogin({
-                email: this.email,
-                password: this.password
-            });
+            try {
+                const userLog =  await this.getLogin({
+                    email: this.email,
+                    password: this.password
+                });
 
-            localStorage.setItem('userData', JSON.stringify({
-                token: userLog.token,
-                email: userLog.user.email,
-                name: userLog.user.name
-            }));
-            
-            router.go();
+                localStorage.setItem('userData', JSON.stringify({
+                    token: userLog.token,
+                    email: userLog.user.email,
+                    name: userLog.user.name
+                }));
+                
+                router.go();
+            } catch (e) {
+                // Alerta Error login
+            }
         },
         async onLogout() {
             localStorage.removeItem('userData');
@@ -67,7 +71,7 @@ export default {
         },
         async getLogin(payload) {
             try {
-                let resp = await fetch('http://localhost:8080/api/auth/login', {
+                let resp = await fetch('https://recipesontime.herokuapp.com/api/auth/login', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -78,7 +82,7 @@ export default {
 
                 return resp;
             } catch(e) {
-                console.log(console.warn)
+                throw new Error(e);
             };
         }
     },
