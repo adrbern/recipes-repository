@@ -10,6 +10,7 @@
                                 <li class="active"><router-link to="home">Inicio</router-link></li>
                                 <li><router-link to="advanced-search">Buscador avanzado</router-link></li>
                                 <li v-if="isLogged"><router-link to="profile">Perfil</router-link></li>
+                                <li v-else><router-link to="register">Registrate</router-link></li>
                                 <div class="clearfix"></div>
                         </ul>
                 </div>
