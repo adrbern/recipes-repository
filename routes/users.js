@@ -18,10 +18,8 @@ router.put('/:id', [
 router.post('/', [
     check('name', 'el nombre es obligatorio').not().isEmpty(),
     check('password', 'el parssword es obligatorio  de mas de 6 letras').isLength({ min: 6 }),
-    //check('rol', 'No es un rol valido').isIn(['ADMIN_ROLE', 'USER_ROLE']),
     check('email', 'el correo no es valido').isEmail(),
     check('email').custom(validEmail),
-    check('role').custom(roleValid),
     fieldsValidator
 ], userPost);
 

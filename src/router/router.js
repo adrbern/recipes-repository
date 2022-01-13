@@ -6,6 +6,7 @@ import Profile from '../views/Profile';
 import Recipe from '../views/Recipe';
 import NewRecipe from '../views/NewRecipe';
 import Register from '../views/Register';
+import RegisterSuccess from '../views/RegisterSuccess';
 import About from '../views/About';
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
     { path: '/recipe', name: 'recipe', component: Recipe },
     { path: '/new-recipe', name: 'newRecipe', component: NewRecipe },
     { path: '/register', name: 'register', component: Register },
+    { path: '/register-success', name: 'register-success', component: RegisterSuccess },
     { path: '/about', name: 'about', component: About }
 ];
 
