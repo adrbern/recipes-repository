@@ -1,25 +1,34 @@
 <template>
-    <div>
-        <SearchRecipes>search loading...</SearchRecipes>
-        <Submenu>submenu loading...</Submenu>
+  <div>
+    <Banner>banner loading...</Banner>
+    <Submenu>submenu loading...</Submenu>
 
-        <div class="living_middle">
-            <div class="container">
-                Profile
+    <div class="living_middle">
+        <div class="container">
+            <div class="entertain_box wow fadeInLeft" data-wow-delay="0.4s">
+              <RecipeSimple>Loading recipe simple ... </RecipeSimple>
+              <RecipeSimple>Loading recipe simple ... </RecipeSimple>
+              <RecipeSimple>Loading recipe simple ... </RecipeSimple>
+              <RecipeSimple>Loading recipe simple ... </RecipeSimple>
+              <RecipeSimple>Loading recipe simple ... </RecipeSimple>
+              <RecipeSimple>Loading recipe simple ... </RecipeSimple>
             </div>
         </div>
     </div>
+  </div>
 </template>
 
 <script>
-import SearchRecipes from '../components/SearchRecipes.vue';
+import Banner from '../components/Banner.vue';
 import Submenu from '../components/Submenu.vue';
+import RecipeSimple from '../components/RecipeSimple.vue';
 
 export default {
   name: 'profile',
   components: {
-    SearchRecipes,
-    Submenu
+    Banner,
+    Submenu,
+    RecipeSimple
   }
 }
 </script>
