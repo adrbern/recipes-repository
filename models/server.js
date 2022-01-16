@@ -9,6 +9,7 @@ class Server {
         this.port = '8081';
         this.authPath = '/api/auth';
         this.usersPath = '/api/users';
+        this.recipesPath = '/api/recipes';
 
         //Conexion BD
         this.conectarDB();
@@ -27,6 +28,7 @@ class Server {
     routes() {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.usersPath, require('../routes/users'));
+        this.app.use(this.recipesPath, require('../routes/recipes'));
     }
 
     middlewares() {
