@@ -14,7 +14,7 @@ const RecipeSchema = Schema({
         required: true,
         enum: ['Vegetal', 'Meet', 'Fish' ]
     },
-    decription: {
+    description: {
         type: String,
         required: [true, 'La descripcion es obligatorio']
     },

@@ -17,15 +17,14 @@ const recipePost = async(req, res = response) => {
         type,
         description,
         persons,
-        user: req.user._id ////// REVISAR POR AQUI
+        user: req.user._id
     });
 
     // guardar en BD
     await recipe.save();
 
     res.json({
-        msg: "Post API controlador",
-        user
+        msg: "Post API controlador"
     });
 }
 
