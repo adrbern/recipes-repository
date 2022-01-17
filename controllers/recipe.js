@@ -2,11 +2,30 @@ const { response } = require('express');
 const Recipe = require('../models/recipe');
 
 const recipesGet = async (req, res = response) => {
-    
+    const { limit = 5, stop = 0 } = req.query;
+    const filter = { status: true };
+
+    const [ total, recipes ] = await Promise.all([
+        Recipe.countDocuments(filter),
+        Recipe.find(filter)
+            .skip(Number(limit))
+            .limit(Number(limit))
+    ]);
+    res.json({
+        msg: "Get API controlador",
+        total,
+        recipes
+    });
 }
 
 const recipeGet = async (req, res = response) => {
-    
+    const id = req.params.id;
+
+    const recipe = await Recipe.findById(id).populate('user', 'name');
+
+    res.json({
+        recipe
+    });
 }
 
 const recipePost = async(req, res = response) => {

@@ -9,7 +9,7 @@ const router = Router();
 router.get('/', recipesGet);
 
 router.get('/:id', [
-    JWTvalidator,
+    //JWTvalidator,
     check('id').custom(recipeExist),
     check('id', 'No es un ID de mongo valido').isMongoId(),
     fieldsValidator
