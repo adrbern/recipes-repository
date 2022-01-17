@@ -30,17 +30,9 @@ router.post('/', [
     check('description', 'la descripcion es obligatoria').not().isEmpty(),
     //Pensar steps
     //check('times', 'No es valido el tiempo de la receta').isNumeric(), // Mapear antes de la BBDD para el enumerado
-    check('persons', 'No son validos el numero de personas').isNumeric(),
     //ingredientes
 
-    /*
-    check('name', 'el nombre es obligatorio').not().isEmpty(),
-    check('password', 'el parssword es obligatorio  de mas de 6 letras').isLength({ min: 6 }),
-    //check('rol', 'No es un rol valido').isIn(['ADMIN_ROLE', 'recipe_ROLE']),
-    check('email', 'el correo no es valido').isEmail(),
-    check('email').custom(validEmail),
-    check('role').custom(roleValid),
-    fieldsValidator*/
+    fieldsValidator
 ], recipePost);
 /*
 router.delete('/:id', [
