@@ -10,6 +10,7 @@ import RegisterSuccess from '../views/RegisterSuccess';
 import About from '../views/About';
 
 const routes = [
+    { path: '/', redirect: '/home' },
     { path: '/home', name: 'home', component: Home },
     { path: '/advanced-search', name: 'advanced-search', component: AdvancedSearch },
     { path: '/profile', name: 'profile', component: Profile },
