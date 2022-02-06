@@ -5,7 +5,8 @@ import AdvancedSearch from '../views/AdvancedSearch';
 import Profile from '../views/Profile';
 import Recipe from '../views/Recipe';
 import NewRecipe from '../views/NewRecipe';
-import SignIn from '../views/SignIn';
+import Register from '../views/Register';
+import RegisterSuccess from '../views/RegisterSuccess';
 import About from '../views/About';
 
 const routes = [
@@ -14,7 +15,8 @@ const routes = [
     { path: '/profile', name: 'profile', component: Profile },
     { path: '/recipe', name: 'recipe', component: Recipe },
     { path: '/new-recipe', name: 'newRecipe', component: NewRecipe },
-    { path: '/sign-in', name: 'sign-in', component: SignIn },
+    { path: '/register', name: 'register', component: Register },
+    { path: '/register-success', name: 'register-success', component: RegisterSuccess },
     { path: '/about', name: 'about', component: About }
 ];
 
