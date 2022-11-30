@@ -42,7 +42,8 @@ class Server {
         this.app.use(history());
         
         // Directorio estatico
-        this.app.use(express.static('public'));
+        //this.app.use(express.static('public'));
+        //this.app.use(express.static('dist'));
     }
 
     listen() {

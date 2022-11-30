@@ -11,6 +11,7 @@
   },
   "main": "app.js",
   "dependencies": {
+    "@babel/node": "^7.16.8",
     "@vue/cli": "^4.5.15",
     "@vue/cli-plugin-babel": "^4.5.15",
     "@vue/cli-plugin-unit-jest": "~4.5.0",

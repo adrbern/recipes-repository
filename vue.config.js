@@ -4,7 +4,8 @@ module.exports = {
           host: 'localhost',
           poll: true
       },
-      disableHostCheck: true
+      disableHostCheck: true,
+      historyApiFallback: true,
     }
 }
 
