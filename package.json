@@ -7,7 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "start": "concurrently --kill-others \"vue-cli-service serve --Host localhost\" \"node app\""
+    "start": "vue-cli-service serve --Host localhost"
   },
   "main": "app.js",
   "dependencies": {
