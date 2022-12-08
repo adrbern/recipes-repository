@@ -1,17 +1,53 @@
-<!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>RecipesOnTime</title>
+        <link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <meta charset="UTF-8">
+        <!-- Custom Theme files -->
+        <link href="./css/style.css" rel='stylesheet' type='text/css' />
+        <!-- Custom Theme files -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!--webfont-->
+        <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/lib/login.js"></script>
+        <script src="js/lib/jquery.easydropdown.js"></script>
+        <!--Animation-->
+        <script src="js/lib/wow.min.js"></script>
+        <link href="css/animate.css" rel='stylesheet' type='text/css' />
+        <script>
+            new WOW().init();
+        </script>
+        <!-- IE required polyfills, in this exact order -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system-polyfills.js"></script>
+        <script src="https://npmcdn.com/angular2@2.0.0-beta.15/es6/dev/src/testing/shims_for_IE.js"></script>
+
+        <script src="https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.js"></script>
+        <script src="https://npmcdn.com/typescript@1.8.10/lib/typescript.js"></script>
+        <script src="https://code.angularjs.org/2.0.0-beta.15/Rx.js"></script>
+        <script src="https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js"></script>
+        <script src="https://code.angularjs.org/2.0.0-beta.15/router.dev.js"></script>
+        <!--script>
+            System.config({
+                transpiler: 'typescript',
+                typescriptOptions: { emitDecoratorMetadata: true },
+                packages: {'js/app': {defaultExtension: 'ts'}}
+            });
+            System.import('js/app/main')
+                    .then(null, console.error.bind(console));
+        </script-->
+
+        <script src="./src/main.js">
+
+        </script>
+    </head>
+<body>
+
+    <div id="app">Loading...</div>
+
+</body>
 </html>

@@ -47,4 +47,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> fec4ab7a2f0374d5bc6a6515705ef76f5236fba1
