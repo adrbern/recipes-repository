@@ -40,7 +40,11 @@ export default {
         }
     },
     created () {
+<<<<<<< HEAD
         const { isLogged, name } = new Session();
+=======
+        const { token, name } = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {};
+>>>>>>> 273ab215ca519b3f0aceef002d266230f45e2e8b
 
         this.isLogged = isLogged;
         this.name = name;
