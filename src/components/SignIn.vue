@@ -36,7 +36,7 @@ export default {
         }
     },
     created () {
-        const { token, name } = JSON.parse(localStorage.getItem('userData') || '');
+        const { token, name } = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {};
 
         this.token = token;
         this.name = name;
