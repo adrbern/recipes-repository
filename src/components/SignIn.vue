@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div id="logged" v-if="isLogged"><a v-on:click="onLogout"><img src="images/logged.png"><span>{{this.name}}</span></a></div>
     <div id="loginContainer" v-else>
             <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
@@ -20,36 +19,11 @@
                         <span><a href="#">Olvidaste tu contraseña?</a></span>
                 </div>
             </div>
-=======
-    <div id="loginContainer">
-        <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
-        <div id="loginBox">
-            <div id="loginForm">
-                <fieldset id="body">
-                    <fieldset>
-                            <label for="email">Usuario</label>
-                            <input type="text" name="email" id="email">
-                    </fieldset>
-                    <fieldset>
-                            <label for="password">Contraseña</label>
-                            <input type="password" name="password" id="password">
-                        </fieldset>
-                    <a href="./entertain.html"><input type="submit" id="login" value="Iniciar "></a>
-                    <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Recordar</i></label>
-                </fieldset>
-                    <span><a href="#">Olvidaste tu contraseña?</a></span>
-            </div>
-        </div>
-
-        <!--div id="logged"><a href="./entertain.html"><img src="images/logged.png"><span>Federico</span></a></div-->
-
->>>>>>> fec4ab7a2f0374d5bc6a6515705ef76f5236fba1
         <div class="clearfix"></div>
     </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import router from '../router/router';
 import Session from '../services/session';
 
@@ -112,12 +86,6 @@ export default {
             };
         }
     },
-=======
-export default {
-  name: 'SignIn',
-  components: {
-  }
->>>>>>> fec4ab7a2f0374d5bc6a6515705ef76f5236fba1
 }
 </script>
 
