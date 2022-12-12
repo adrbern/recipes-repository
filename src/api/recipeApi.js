@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const authApi = axios.create({
-    baseURL: 'http://localhost:8081/api/auth/',
+const recipeApi = axios.create({
+    baseURL: 'http://localhost:8081/api/recipe/',
     params: {
         //key: 'AIzaSyBhCquFEBH1rgR5IJFo1v1qGiZzHDe2PVI'
     }
@@ -9,4 +9,4 @@ const authApi = axios.create({
 
 // console.log( process.env.NODE_ENV ) // TEST durante testing, 
 
-export default authApi
+export default recipeApi;

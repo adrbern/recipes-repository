@@ -33,12 +33,18 @@ export default {
     },
     setup() {
        const router = useRouter()
-       const { userForm, onLogin, getUser, onLogout } = useSession()
+       const { userForm, onLogin, onLogout } = useSession()
 
        return {
         userForm,
-        onLogin,
-        onLogout
+        onLogin: async() => {
+            onLogin();
+            router.go();
+        },
+        onLogout: async() => {
+            onLogout();
+            router.go();
+        }
        };
     }
 }

@@ -31,7 +31,7 @@ export default {
     RecipeRelatedContainer,
     FooterPage
   },
-  data() {
+  setup() {
     return {
       ToDoItems: [{}, {}]
     }

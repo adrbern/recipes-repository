@@ -33,6 +33,9 @@
 export default {
   name: 'FooterPage',
   components: {
+  },
+  setup() {
+    
   }
 }
 </script>

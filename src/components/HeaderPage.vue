@@ -32,16 +32,8 @@ export default {
   components: {
     SignIn
   },
-  data() {
-        return {
-            isLogged: null,
-        }
+  setup() {
   },
-  created (){
-        const { isLogged } = new Session();
-
-        this.isLogged = isLogged;
-  }
 }
 </script>
 
