@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <!--div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link :to="{name: 'counter'}" >Counter</router-link> | 
@@ -7,13 +7,34 @@
     <router-link :to="{name: 'pokemon-search'}" >Search Pokemon</router-link> | 
     <router-link :to="{name: 'todo'}" >Todo</router-link> | 
     <router-link :to="{name: 'slots'}" >Slots</router-link>
+  </div-->
+
+  <div>
+    <HeaderPage>header loading...</HeaderPage>
+
+    <router-view v-slot="{Component, route}">
+      <keep-alive>
+        <component :is="Component" :key="route.name"></component>
+      </keep-alive>
+    </router-view>
+
+    <FooterPage>footer loading...</FooterPage>
   </div>
-  <router-view v-slot="{Component, route}">
-    <keep-alive>
-      <component :is="Component" :key="route.name"></component>
-    </keep-alive>
-  </router-view>
 </template>
+
+<script>
+import HeaderPage from '../components/HeaderPage.vue';
+import FooterPage from '../components/FooterPage.vue'
+
+export default {
+    components: {
+      HeaderPage,
+      FooterPage
+    },
+    setup() {
+    }
+}
+</script>
 
 <style>
 #app {

@@ -2,15 +2,15 @@
     <div class="header">
         <div class="header-left">
                 <div class="logo">
-                        <router-link to="home"><img src="images/logo.png" alt=""/></router-link>
+                        <router-link :to="{name: 'home'}"><img src="images/logo.png" alt=""/></router-link>
                 </div>
                 <div class="menu">
                         <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
                         <ul class="nav" id="nav">
-                                <li class="active"><router-link to="home">Inicio</router-link></li>
-                                <li><router-link to="advanced-search">Buscador avanzado</router-link></li>
-                                <li v-if="isLogged"><router-link to="profile">Perfil</router-link></li>
-                                <li v-else><router-link to="register">Registrate</router-link></li>
+                                <li class="active"><router-link :to="{name: 'home'}">Inicio</router-link></li>
+                                <li><router-link :to="{name: 'advanced-search'}">Buscador avanzado</router-link></li>
+                                <li v-if="isLogged"><router-link :to="{name: 'profile'}">Perfil</router-link></li>
+                                <li v-else><router-link :to="{name: 'register'}">Registrate</router-link></li>
                                 <div class="clearfix"></div>
                         </ul>
                 </div>
@@ -47,8 +47,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> fec4ab7a2f0374d5bc6a6515705ef76f5236fba1
