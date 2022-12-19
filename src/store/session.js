@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+/*import { createStore } from 'vuex'
 import {v4 as uuid4} from 'uuid'
 
 export default createStore({
@@ -50,3 +50,4 @@ export default createStore({
   modules: {
   }
 })
+*/

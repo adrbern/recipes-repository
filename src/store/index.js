@@ -4,14 +4,11 @@ import * as actions from './actions'
 import * as getters from './getters'
 import * as mutations from './mutations'
 
+import { createStore } from 'vuex'
 
-const authModule = {
-    namespaced: true,
-    actions,
-    getters,
-    mutations,
-    state
-}
-
-
-export default authModule
+export default createStore({
+  state,
+  mutations,
+  actions,
+  getters
+})

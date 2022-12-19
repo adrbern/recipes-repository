@@ -1,48 +1,45 @@
-import authApi from '@/api/authApi'
-import userApi from '@/api/userApi'
+import authApi from '@/api/authApi';
+import userApi from '@/api/userApi';
 // export const myAction = async ({ commit }) => {
 
 
 // }
 
-_getUser = async ({ email }) => {
-    const { name, role, google } = await  await userApi.get('', {
-        params: { email }
-    });
-
-    
-    return {
-        name, role, google, email
-    }
-}
-
+// USERS
 export const signInUser = async ({ commit }, user ) => {
-    
-    const { email, password } = user
+    const { email, password } = user.value;
 
     try {
-        
-        const { idToken, refreshToken } = await authApi.post(':login', { email, password, returnSecureToken: true })
-        
-        //user.name = displayName
-        const userInfo = this._getUser({ email })
-
-        commit('loginUser',  {...userInfo, idToken, refreshToken} )
+        const {data: {token, user}} = await authApi.post('login', { email, password, returnSecureToken: true })
+        commit('loginUser',  {...user, token } )
 
         return { ok: true }
 
     } catch (error) {
-        return { ok: false, message: error.response.data.error.message }
+        return { ok: false, message: error?.response?.data?.error?.message }
     }
     
 }
 
+export const registerUser = async({commit}, registerData) => {
+    const { username, email, password } = registerData.value;
+
+    try {
+       const {data: { user }} = await userApi.post('', { name: username, email, password, role: 'USER_ROLE'});
+       commit('loginUser',  {...user }) ;
+
+       return { ok: true };
+    } catch (error) {
+        return { ok: false, message: error?.response?.data?.error?.message}
+    }
+}
 
 
+/*
 export const createUser = async ({ commit }, user ) => {
     
 }
-
+*/
 
 //////
 
@@ -54,12 +51,12 @@ export const createUser = async ({ commit }, user ) => {
     try {
         
         const { data } = await authApi.post(':signUp', { email, password, returnSecureToken: true })
-        const { idToken, refreshToken } = data
+        const { token, refreshToken } = data
 
-        await authApi.post(':update', { displayName: name, idToken, refreshToken })
+        await authApi.post(':update', { displayName: name, token, refreshToken })
         
         delete user.password
-        commit('loginUser', { user, idToken, refreshToken })
+        commit('loginUser', { user, token, refreshToken })
 
         return { ok: true }
 
@@ -72,17 +69,17 @@ export const createUser = async ({ commit }, user ) => {
 /*
 export const checkAuthentication = async ({ commit }) => {
 
-    const idToken      = localStorage.getItem('idToken')
+    const token      = localStorage.getItem('token')
     const refreshToken = localStorage.getItem('refreshToken')
 
-    if( !idToken ) {
+    if( !token ) {
         commit('logout')
         return { ok: false, message: 'No hay token' }
     }
 
     try {
         
-        const { data } = await authApi.post(':lookup', { idToken })
+        const { data } = await authApi.post(':lookup', { token })
         // console.log(data)
         const { displayName, email } = data.users[0]
 
@@ -91,7 +88,7 @@ export const checkAuthentication = async ({ commit }) => {
             email
         }
 
-        commit('loginUser', { user, idToken, refreshToken })
+        commit('loginUser', { user, token, refreshToken })
 
         return { ok: true }
 

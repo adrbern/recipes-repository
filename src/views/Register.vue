@@ -6,16 +6,16 @@
                 <h2>Rellena los siguientes campos</h2>
                 <form action="">
                     <div class="text">
-                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre ';}" v-model="name">
+                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre ';}" v-model="resgistreForm.name">
                     </div>
                     <div class="text">
-                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email ';}" v-model="email">
+                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email ';}" v-model="resgistreForm.email">
                     </div>
                     <div class="text">
-                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Contraseña ';}" v-model="password">
+                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Contraseña ';}" v-model="resgistreForm.password">
                     </div>
                     <div class="text">
-                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirmacion de contraseña ';}" v-model="passwordConfirm">
+                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirmacion de contraseña ';}" v-model="resgistreForm.passwordConfirm">
                     </div>
                     <div class="form-submit1">
                         <input type="button" id="submit" value="Crear cuenta" v-on:click="onRegister">
@@ -28,15 +28,36 @@
 </template>
 
 <script>
-import router from '../router/router';
+//import router from '../router/router';
+import { useRouter } from 'vue-router'
 import Banner from '../components/Banner.vue';
+import useRegister from '../composables/useRegister';
+import useSession from '../composables/useSession';
 
 export default {
     name: 'Register',
     components: {
         Banner
     },
-    data() {
+    setup() {
+        const router = useRouter();
+        const { resgistreForm, onRegister } = useRegister();
+        const { userForm, onLogin } = useSession();
+
+        return {
+            resgistreForm,
+            onRegister: async() => {
+                await onRegister();
+
+                userForm.value.email = resgistreForm.email;
+                userForm.value.password = resgistreForm.password;
+
+                await onLogin();
+                return router.replace('register-succes');
+            }
+        };
+    }
+/*    data() {
         return {
             name: 'Nombre',
             email: 'Email',
@@ -109,7 +130,7 @@ export default {
 
             return errorText;
         }
-    }
+    }*/
 }
 </script>
 

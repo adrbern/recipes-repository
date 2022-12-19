@@ -1,5 +1,5 @@
 <template>
-    <div id="logged" v-if="isLogged"><a v-on:click="onLogout"><img src="images/logged.png"><span>{{this.name}}</span></a></div>
+    <div id="logged" v-if="isLogged"><a v-on:click="onLogout"><img src="images/logged.png"><span>{{this.username}}</span></a></div>
     <div id="loginContainer" v-else>
             <a href="#" id="loginButton"><img src="images/login.png"><span>Iniciar Sesión</span></a>
             <div id="loginBox">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { useRouter } from 'vue-router'
+//import { useRouter } from 'vue-router'
 import useSession from '../composables/useSession';
 
 export default {
@@ -32,18 +32,25 @@ export default {
     components: {
     },
     setup() {
-       const router = useRouter()
-       const { userForm, onLogin, onLogout } = useSession()
+       //const router = useRouter()
+       const { userForm, isLogged, username, onLogin, onLogout } = useSession()
 
        return {
         userForm,
+        isLogged,
+        username,
         onLogin: async() => {
-            onLogin();
-            router.go();
+            //TODO A lo mejor no hace falta
+            const { ok } = await onLogin();
+            console.log(ok)
+            /*if (ok) {
+                router.go();
+            }*/
         },
         onLogout: async() => {
             onLogout();
-            router.go();
+            //TODO A lo mejor no hace falta
+            //router.go();
         }
        };
     }

@@ -36,7 +36,7 @@ const useRecipes = (initialValue = 1) => {
       isLoading,
       currentPage,
       errorMessage,
-
+    
       nextPage: () => getRecipes(currentPage.value + 1),
       prevtPage: () => getRecipes(currentPage.value - 1)
   }
