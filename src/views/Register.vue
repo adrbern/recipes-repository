@@ -6,7 +6,7 @@
                 <h2>Rellena los siguientes campos</h2>
                 <form action="">
                     <div class="text">
-                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre ';}" v-model="resgistreForm.name">
+                        <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre ';}" v-model="resgistreForm.username">
                     </div>
                     <div class="text">
                         <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email ';}" v-model="resgistreForm.email">
@@ -18,7 +18,7 @@
                         <input type="text" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirmacion de contraseña ';}" v-model="resgistreForm.passwordConfirm">
                     </div>
                     <div class="form-submit1">
-                        <input type="button" id="submit" value="Crear cuenta" v-on:click="onRegister">
+                        <input type="button" id="submit" value="Crear cuenta" v-on:click="getRegister">
                     </div>
                     <div class="clearfix"></div>
                 </form>
@@ -46,14 +46,21 @@ export default {
 
         return {
             resgistreForm,
-            onRegister: async() => {
-                await onRegister();
+            getRegister: async() => {
 
-                userForm.value.email = resgistreForm.email;
-                userForm.value.password = resgistreForm.password;
+                try{
+                    const { ok } = await onRegister();
 
-                await onLogin();
-                return router.replace('register-succes');
+                    if(ok) {
+                        userForm.value.email = resgistreForm.value.email;
+                        userForm.value.password = resgistreForm.value.password;
+
+                        await onLogin();
+                        return router.replace('register-succes');
+                    }
+                } catch(e) {
+                    console.log(e)
+                }
             }
         };
     }
