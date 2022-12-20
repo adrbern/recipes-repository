@@ -1,14 +1,15 @@
-import express from 'express';
-import history from 'connect-history-api-fallback';
-import cors from 'cors';
-import { dbConnection } from '../database/config';
+const express = require('express');
+const history = require('connect-history-api-fallback');
+const cors = require('cors');
+const { dbConnection } = require('../database/config');
 
-export default class Server {
+class Server {
     constructor() {
         this.app = express();
-        this.port = process.env.PORT;
+        this.port = '8081';
         this.authPath = '/api/auth';
         this.usersPath = '/api/users';
+        this.recipesPath = '/api/recipes';
 
         //Conexion BD
         this.conectarDB();
@@ -27,6 +28,7 @@ export default class Server {
     routes() {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.usersPath, require('../routes/users'));
+        this.app.use(this.recipesPath, require('../routes/recipes'));
     }
 
     middlewares() {
@@ -49,3 +51,5 @@ export default class Server {
         });
     }
 }
+
+module.exports = Server;

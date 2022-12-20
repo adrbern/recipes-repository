@@ -2233,7 +2233,7 @@ p.educate {
 	text-align:center;
 	margin-top:2em;
 }
-.form-submit1 input[type="submit"] {
+.form-submit1 input[type="button"] {
 	color: #FFF;
 	text-align:center;
 	font-size: 0.95em;
@@ -2251,7 +2251,7 @@ p.educate {
 	border: none;
 	cursor: pointer;
 }
-.form-submit1 input[type="submit"]:hover {
+.form-submit1 input[type="button"]:hover {
 	background:#7B7C7C;
 }
 .living_middle h2 {
