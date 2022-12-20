@@ -1,5 +1,5 @@
 <template>
-  
+  <div>loading...new recipe</div>
 </template>
 
 <script>

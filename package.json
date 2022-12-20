@@ -2,7 +2,7 @@
   "name": "recipes-repository",
   "version": "0.1.0",
   "engines": {
-    "node": "14.17.5"
+    "node": "14.x"
   },
   "private": true,
   "scripts": {

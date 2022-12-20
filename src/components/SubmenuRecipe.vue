@@ -1,6 +1,6 @@
 <template>
-	<div class="content_top wow bounceInRight" data-wow-delay="0.4s">
-   	    <div class="container">
+    <div class="content_top wow bounceInRight" data-wow-delay="0.4s">
+           <div class="container">
             <div class="col-md-4 bottom_nav">
                 <div class="content_menu">
                     <ul>
@@ -23,7 +23,7 @@
                     <li class="fil2"> Comentarios (50)</li>
                 </ul>
             </div>
-   	    </div>
+           </div>
     </div>
 </template>
 

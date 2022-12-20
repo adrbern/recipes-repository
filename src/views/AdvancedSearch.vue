@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
-   	        <div class="container">
+            <div class="container">
                 Advanced Search
             </div>
         </div>

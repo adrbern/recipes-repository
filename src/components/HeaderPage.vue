@@ -25,7 +25,7 @@
 
 <script>
 import SignIn from './SignIn.vue';
-import Session from '../services/session';
+//import Session from '../services/session';
 
 export default {
   name: 'HeaderPage',
