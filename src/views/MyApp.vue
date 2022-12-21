@@ -5,7 +5,7 @@
       <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
         <div class="living_middle">
           <div class="container">
-            <RecipeCard v-for="item in ToDoItems" :key="item.id">ficha receta</RecipeCard>
+            <RecipeCard v-for="item in recipes" :key="item.id" .recipe="item">ficha receta</RecipeCard>
           </div>
         </div>
         <RecipeRelatedContainer>Recipe Related Container ... </RecipeRelatedContainer>    
@@ -19,6 +19,8 @@ import Submenu from '../components/Submenu.vue';
 import RecipeCard from '../components/RecipeCard.vue';
 import RecipeRelatedContainer from '../components/RecipeRelatedContainer.vue';
 
+import useRecipes from '../composables/useRecipes';
+
 export default {
   name: 'Home',
   components: {
@@ -28,8 +30,14 @@ export default {
     RecipeRelatedContainer
   },
   setup() {
+    const { filter, recipes,  } = useRecipes();
+
     return {
-      ToDoItems: [{}, {}]
+      filter,
+      recipes
+      /*onRecipes: async() => {
+        await onRecipes();
+      } */
     }
   }
 }

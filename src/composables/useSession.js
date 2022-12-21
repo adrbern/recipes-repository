@@ -3,7 +3,7 @@ import { useStore } from 'vuex';
 
 const useSession = () => {
 
-const store = useStore();
+  const store = useStore();
   const userForm = ref({
     email: '',
     password: ''

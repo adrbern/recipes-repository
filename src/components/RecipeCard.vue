@@ -31,6 +31,9 @@
   export default {
     name: 'RecipeCard',
     components: {
+    },
+    setup() {
+      console.log(this)
     }
   }
   </script>

@@ -4,6 +4,7 @@
 // }
 
 
+// User
 export const loginUser = ( state, { name, email, role, google, token, /*refreshToken*/ }) => {
     state.name = name;
     state.email = email;
@@ -13,7 +14,6 @@ export const loginUser = ( state, { name, email, role, google, token, /*refreshT
     //state.refreshToken = refreshToken;
 }
 
-
 export const logout = (state) => {
     state.name = null;
     state.email = null;
@@ -21,4 +21,9 @@ export const logout = (state) => {
     state.email = null;
     state.token = null;
     state.refreshToken = null;
+}
+// Recipes
+
+export const recipesList = (state, { recipes }) => {
+    state.recipes = recipes;
 }

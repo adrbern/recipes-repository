@@ -1,44 +1,26 @@
-import { ref } from 'vue';
-import axios from 'axios'
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
 
+const useRecipes = async() => {
+  const store = useStore();
 
-const useRecipes = (initialValue = 1) => {
-/* PARAMETROS DE USUARIO LOGADo
+  //Enumerados de tipos
+  const filter = ref({})
 
-    const users = ref([])
-  const isLoading = ref(true)
-  const currentPage = ref(1)
-  const errorMessage = ref()
-*/
-  const getRecipes = async(page = 1) => {
-      if(page<= 0) page = 1
-
-      isLoading.value = true;
-      const {data} = await axios.get(`https://reqres.in/api/users`, {
-          params: { page }
-      })
-
-      if(data.data.length > 0) {
-          users.value = data.data;
-          currentPage.value = page;
-          errorMessage.value = null;
-      } else if (currentPage.value > 0) {
-          errorMessage.value = 'No hay mas usuarios';
-      }
-
-      isLoading.value = false
+  const _getRecipes = async() => {
+    const resp = await store.dispatch('getRecipes', filter)
+    return resp
   }
 
-  getRecipes(initialValue);
+  _getRecipes();
 
   return {
-      recipes,
-      isLoading,
-      currentPage,
-      errorMessage,
-    
-      nextPage: () => getRecipes(currentPage.value + 1),
-      prevtPage: () => getRecipes(currentPage.value - 1)
+    //Attr
+      filter,
+    //Getters
+      recipes: computed(() => store.getter['recipes']),
+    //Methods
+     // onRecipes: () => _getRecipes()
   }
 }
 

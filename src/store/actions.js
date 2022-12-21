@@ -1,5 +1,7 @@
 import authApi from '@/api/authApi';
 import userApi from '@/api/userApi';
+import recipesApi from '@/api/recipesApi';
+
 // export const myAction = async ({ commit }) => {
 
 
@@ -33,6 +35,23 @@ export const registerUser = async({commit}, registerData) => {
         return { ok: false, message: error?.response?.data?.error?.message}
     }
 }
+
+// RECIPES
+export const getRecipes = async({commit}, filter = {}) => {
+    try {
+        const {data: { recipes }} = await recipesApi.get('', filter);
+        commit('recipesList',  { recipes }) ;
+    
+        return { ok: true };
+    } catch (error) {
+        return { ok: false, message: error?.response?.data?.error?.message}
+    }
+}
+
+
+
+
+
 
 
 /*
