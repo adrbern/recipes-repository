@@ -1,7 +1,8 @@
 import axios from 'axios'
+require('dotenv').config();
 
 const recipeApi = axios.create({
-    baseURL: 'http://localhost:8081/api/recipe/',
+    baseURL: `${process.env.ENV || 'http://localhost:8080'}/api/recipe/`,
     params: {
         //key: 'AIzaSyBhCquFEBH1rgR5IJFo1v1qGiZzHDe2PVI'
     }

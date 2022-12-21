@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const authApi = axios.create({
-    baseURL: 'http://localhost:8080/api/auth/',
+    baseURL: `${process.env.ENV || 'http://localhost:8080'}/api/auth/`,
     params: {
         //key: 'AIzaSyBhCquFEBH1rgR5IJFo1v1qGiZzHDe2PVI'
     }
