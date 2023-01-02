@@ -1,15 +1,15 @@
 import { ref, computed } from 'vue';
 import { useStore } from 'vuex';
 
-const useRecipes = async() => {
+const useRecipes = () => {
   const store = useStore();
 
   //Enumerados de tipos
-  const filter = ref({})
-
+  const filter = ref({});
+  
   const _getRecipes = async() => {
     const resp = await store.dispatch('getRecipes', filter)
-    return resp
+    return resp;
   }
 
   _getRecipes();
@@ -18,9 +18,9 @@ const useRecipes = async() => {
     //Attr
       filter,
     //Getters
-      recipes: computed(() => store.getter['recipes']),
+      recipes: computed(() => store.getters['recipesList']),
     //Methods
-     // onRecipes: () => _getRecipes()
+    //  onRecipes: () => _getRecipes()
   }
 }
 

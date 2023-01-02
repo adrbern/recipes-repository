@@ -42,7 +42,7 @@ export const getRecipes = async({commit}, filter = {}) => {
         const {data: { recipes }} = await recipesApi.get('', filter);
         commit('recipesList',  { recipes }) ;
     
-        return { ok: true };
+        return { ok: true, recipes };
     } catch (error) {
         return { ok: false, message: error?.response?.data?.error?.message}
     }

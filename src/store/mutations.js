@@ -23,7 +23,6 @@ export const logout = (state) => {
     state.refreshToken = null;
 }
 // Recipes
-
 export const recipesList = (state, { recipes }) => {
-    state.recipes = recipes;
+    state.recipes = [...recipes] || [];
 }

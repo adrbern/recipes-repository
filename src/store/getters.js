@@ -9,9 +9,15 @@ export const currentState = ( state ) => {
 }
 */
 
+//USER
 export const isLogged = ( state ) => {
     return Boolean(state.token);
 }
 export const username = ( state ) => {
     return state.name;
+}
+
+//RECIPES
+export const recipesList = ( state) => {
+    return state.recipes || [];
 }

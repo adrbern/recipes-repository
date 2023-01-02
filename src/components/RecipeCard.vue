@@ -8,15 +8,15 @@
         </span>
       </a>
       <div class="living_desc">
-        <h3><router-link to="recipe">aliquam volutp</router-link></h3>
-      <p>Lorem ipsum consectetuer adipiscing </p>
+        <h3><router-link to="recipe">{{ recipe?.name }}</router-link></h3>
+      <p>{{ recipe?.description }}</p>
       <router-link class="btn3" to="recipe">Ir a receta</router-link>
       <p class="price">45 Minutos</p>
       </div>
         <table border="1" class="propertyDetails">
         <tbody>
           <tr>
-            <td><img src="images/area.png" alt="" style="margin-right:7px;">2-4 persons</td>
+            <td><img src="images/area.png" alt="" style="margin-right:7px;">{{ recipe?.persons }} persons</td>
             <td><img src="images/bed.png" alt="" style="margin-right:7px;">4 Ingredien</td>
             <td><img src="images/drop.png" alt="" style="margin-right:7px;">384 kcal</td>
           </tr>
@@ -30,10 +30,19 @@
   <script>
   export default {
     name: 'RecipeCard',
+   props: {
+      recipe: {
+          type: Object,
+          required: true
+      }
+    },
+    
     components: {
     },
-    setup() {
+    setup(props) {
+      console.log(props)
       console.log(this)
+      return {}
     }
   }
   </script>
