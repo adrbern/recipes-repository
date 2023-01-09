@@ -8,9 +8,9 @@
         </span>
       </a>
       <div class="living_desc">
-        <h3><router-link to="recipe">{{ recipe?.name }}</router-link></h3>
+        <h3><router-link :to="{name: 'recipe-id', params: { id: this.recipe._id } }">Inicio</router-link></h3>
       <p>{{ recipe?.description }}</p>
-      <router-link class="btn3" to="recipe">Ir a receta</router-link>
+      <router-link class="btn3" :to="{name: 'recipe-id', params: { id: this.recipe._id } }">Ir a receta</router-link>
       <p class="price">45 Minutos</p>
       </div>
         <table border="1" class="propertyDetails">

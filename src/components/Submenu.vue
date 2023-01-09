@@ -18,12 +18,12 @@
             </div>
             <div class="col-md-4 filter_grid">
                 <ul class="filter">
-                    <li class="fil">Clase :</li>
-                    <li><a href=""> <i class="icon1"> </i> </a></li>
-                    <li><a href=""> <i class="icon2"> </i> </a></li>
-                    <li><a href=""> <i class="icon3"> </i> </a></li>
-                    <li><a href=""> <i class="icon4"> </i> </a></li>
-                    <li><a href=""> <i class="icon5"> </i> </a></li>
+                    <li class="fi-l">Clase :</li>
+                    <li @click="recipesByFilterType('Vegetal')"><a> <i class="icon1"> </i> </a></li>
+                    <li @click="recipesByFilterType('Meat')"><a> <i class="icon2"> </i> </a></li>
+                    <li @click="recipesByFilterType('Fish')"><a> <i class="icon3"> </i> </a></li>
+                    <li @click="recipesByFilterType('Legume')"><a> <i class="icon4"> </i> </a></li>
+                    <li @click="recipesByFilterType('Fruit')"><a> <i class="icon5"> </i> </a></li>
                 </ul>
             </div>
         </div>
@@ -31,6 +31,24 @@
 </template>
 
 <script>
+import useRecipes from '../composables/useRecipes';
+
+export default {
+  name: 'Submenu',
+  components: {
+  },
+  setup() {
+    const { filter, recipes, recipesByFilterType } = useRecipes();
+
+    //onRecipes;
+
+    return {
+      filter,
+      recipes,
+      recipesByFilterType
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

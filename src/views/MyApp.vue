@@ -5,7 +5,8 @@
       <div class="content_middle wow bounceInLeft" data-wow-delay="0.4s">
         <div class="living_middle">
           <div class="container" >
-            {{recipes }}
+            aaa
+            {{recipes?.length}}
             <RecipeCard v-for="item in recipes" :key="item._id" :recipe="item">ficha receta</RecipeCard>
           </div>
         </div>

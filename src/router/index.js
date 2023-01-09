@@ -21,7 +21,12 @@ const routes = [
   }, {
     path: '/recipe/:id',
     name: 'recipe-id',
-    component: () => import(/* webpackChunkName: "recipe-id" */ '../views/Recipe.vue')
+    component: () => import(/* webpackChunkName: "recipe-id" */ '../views/Recipe.vue'),
+    props: (route) => {
+      return {
+        id: route.params.id
+      }
+    }
   }, {
     path: '/new-recipe',
     name: 'new-recipe',

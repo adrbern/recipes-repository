@@ -18,6 +18,14 @@ export const username = ( state ) => {
 }
 
 //RECIPES
-export const recipesList = ( state) => {
+/*
+export const recipesByType = ( state) => (filter) => {
+    if (filter.type) {
+        return state.recipes.filter((item) => {
+            return item.type === filter.type;
+        })
+    }
+
     return state.recipes || [];
 }
+*/

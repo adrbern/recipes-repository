@@ -28,6 +28,15 @@ export default {
     RecipeStepDetailContainer,
     SubmenuRecipe,
     RecipeRelatedContainer
+  },
+  props: {
+    id: {
+        type: String,
+        required: true
+    }
+  }, 
+  setup() {
+
   }
 }
 </script>
