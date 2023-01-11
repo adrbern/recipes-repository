@@ -26,3 +26,7 @@ export const logout = (state) => {
 export const recipesList = (state, { recipes }) => {
     state.recipes = [...recipes] || [];
 }
+
+export const recipe = (state, { recipe }) => {
+    state.recipe = recipe;
+}

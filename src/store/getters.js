@@ -39,3 +39,7 @@ export const getRecipeById = ( state) => (id) => {
 
     return null;
 }
+
+export const getRecipe = (state) => {
+    return state.recipe;
+}

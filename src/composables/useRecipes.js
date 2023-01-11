@@ -20,6 +20,11 @@ const useRecipes = () => {
     return resp;
   }
 
+  const _getRecipesById = async(id) => {
+    const resp = await store.dispatch('getRecipesById', id);
+
+    return resp;
+  }
   
   const recipesByFilterType = (type) => {
     filter.value.type = type
@@ -37,6 +42,7 @@ const useRecipes = () => {
       
     //Getters
      recipes,
+     recipe: computed(() => store.getters['getRecipe']),
      recipeById: computed(() => {
       console.log('computed')
       const prueba = store.getters['getRecipeById'](filter.value.id);
@@ -44,8 +50,8 @@ const useRecipes = () => {
       return prueba;
     }),
     //Methods
-    //  onRecipes: () => _getRecipes()
-    recipesByFilterType
+      onRecipesById: (id) => _getRecipesById(id),
+      recipesByFilterType
   }
 }
 

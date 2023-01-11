@@ -48,6 +48,19 @@ export const getRecipes = async({commit}, filter = {}) => {
     }
 }
 
+export const getRecipesById = async({commit}, id = '') => {
+    try {
+        const {data: { recipe }} = await recipesApi.get(`${id}`, {});
+        commit('recipe',  { recipe }) ;
+    
+        return { ok: true, recipe };
+    } catch (error) {
+        return { ok: false, message: error?.response?.data?.error?.message}
+    }
+}
+
+
+
 
 
 

@@ -42,11 +42,13 @@ export default {
     console.log('vista recipe ' + properties)
     // TODO recupeacion de los params
     console.log('id ficha'+ properties.id)
-    const { filter, recipeById } = useRecipes();
+    const { filter/*, recipeById*/ , onRecipesById, recipe } = useRecipes();
     filter.value = {id: properties.id};
 
+    onRecipesById(properties.id)
     return {
-      recipe: recipeById
+     // recipe: recipeById
+     recipe
     }
   }
 
