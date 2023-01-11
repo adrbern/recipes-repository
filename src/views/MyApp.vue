@@ -33,7 +33,8 @@ export default {
   },
   setup() {
     const { filter, recipes } = useRecipes();
-
+     
+    filter.value = {};
     //onRecipes;
 
     return {

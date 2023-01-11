@@ -4,6 +4,7 @@
         <SubmenuRecipe>submenu recipe loading...</SubmenuRecipe>
         <div class="living_middle">
             <div class="container">
+              {{ recipe }}
                 <RecipeStepContainer>recipe step container ... </RecipeStepContainer>
                 <RecipeStepDetailContainer>Recipe Step detail container ... </RecipeStepDetailContainer>
             </div>
@@ -19,6 +20,7 @@ import RecipeStepContainer from '../components/RecipeStepContainer.vue';
 import RecipeStepDetailContainer from '../components/RecipeStepDetailContainer.vue';
 import RecipeRelatedContainer from '../components/RecipeRelatedContainer.vue';
 
+import useRecipes from '../composables/useRecipes';
 
 export default {
   name: 'Recipe',
@@ -34,10 +36,21 @@ export default {
         type: String,
         required: true
     }
-  }, 
-  setup() {
+  },
+  setup(props) {
+    const properties = {...props};
+    console.log('vista recipe ' + properties)
+    // TODO recupeacion de los params
+    console.log('id ficha'+ properties.id)
+    const { filter, recipeById } = useRecipes();
+    filter.value = {id: properties.id};
 
+    return {
+      recipe: recipeById
+    }
   }
+
+
 }
 </script>
 

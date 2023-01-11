@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 
 const useRecipes = () => {
@@ -6,32 +6,27 @@ const useRecipes = () => {
 
   //Enumerados de tipos
   const filter = ref({
-    type: null
+    type: null,
+    id: ''
   });
-  const recipes = ref([]);
-  const recipesBase = ref([]);
+
+  const recipes = computed(() => {
+    return store.getters['recipesByType'](filter.value.type);
+   })
   
   const _getRecipes = async() => {
     const resp = await store.dispatch('getRecipes', {});
 
-    recipes.value = resp.recipes;
-    recipesBase.value = resp.recipes;
-
     return resp;
   }
 
+  
   const recipesByFilterType = (type) => {
     filter.value.type = type
     
-    if (filter.value.type) {
-      recipes.value = [...recipesBase.value.filter((item) => {
-        return item.type === filter.value.type;
-    })]
-      return
-    }
+    console.log('recalcular ' + recipes.value);
 
-    recipes.value = [...recipesBase.value];
-    return
+    return recipes.value
   }
 
   _getRecipes();
@@ -39,9 +34,15 @@ const useRecipes = () => {
   return {
     //Attr
       filter,
-      recipes,
+      
     //Getters
-     // recipes: recipesByFilterType(filter.value),
+     recipes,
+     recipeById: computed(() => {
+      console.log('computed')
+      const prueba = store.getters['getRecipeById'](filter.value.id);
+      console.log(prueba)
+      return prueba;
+    }),
     //Methods
     //  onRecipes: () => _getRecipes()
     recipesByFilterType
