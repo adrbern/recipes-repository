@@ -3,9 +3,9 @@
         <Banner>banner loading...</Banner>
         <SubmenuRecipe>submenu recipe loading...</SubmenuRecipe>
         <div class="living_middle">
-            <div class="container">
+            <div class="container" v-if="recipe">
               {{ recipe }}
-                <RecipeStepContainer>recipe step container ... </RecipeStepContainer>
+                <RecipeStepContainer :ingredients=recipe?.ingredientsList>recipe step container ... </RecipeStepContainer>
                 <RecipeStepDetailContainer>Recipe Step detail container ... </RecipeStepDetailContainer>
             </div>
         </div>

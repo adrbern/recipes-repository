@@ -41,5 +41,9 @@ export const getRecipeById = ( state) => (id) => {
 }
 
 export const getRecipe = (state) => {
-    return state.recipe;
+    return state.recipeInfo;
+}
+
+export const getAllIngredients = (state) => {
+    return state.getAllIngredients;
 }

@@ -1,6 +1,9 @@
 import authApi from '@/api/authApi';
 import userApi from '@/api/userApi';
 import recipesApi from '@/api/recipesApi';
+import ingredientsListApi from '@/api/ingredientsListApi';
+import ingredientsApi from '@/api/ingredientsApi';
+
 
 // export const myAction = async ({ commit }) => {
 
@@ -51,11 +54,37 @@ export const getRecipes = async({commit}, filter = {}) => {
 export const getRecipesById = async({commit}, id = '') => {
     try {
         const {data: { recipe }} = await recipesApi.get(`${id}`, {});
-        commit('recipe',  { recipe }) ;
+        //commit('recipe',  { recipe }) ;
     
+        console.log(commit)
         return { ok: true, recipe };
     } catch (error) {
         return { ok: false, message: error?.response?.data?.error?.message}
+    }
+}
+
+// INGREDIENTS List
+export const getIngredientsListById = async({commit}, id = '') => {
+    try{
+        const {data: { ingredientList }} = await ingredientsListApi.get(`${id}`, {});
+        //commit('recipeList',  { ingredientList }) ;
+    
+        console.log(commit)
+        return { ok: true, ingredientsList: ingredientList };
+    } catch(e) {
+        return { ok: false, message: e?.response?.data?.error?.message}
+    }
+}
+
+// INGREDIENT
+export const getAllIngredients = async({commit}, id = '') => {
+    try{
+        const {data: { ingredients }} = await ingredientsApi.get(`${id}`, {});
+        commit('allIngredients', ingredients) ;
+    
+        return { ok: true, ingredients };
+    } catch(e) {
+        return { ok: false, message: e?.response?.data?.error?.message}
     }
 }
 

@@ -13,7 +13,20 @@ const useRecipes = () => {
   const recipes = computed(() => {
     return store.getters['recipesByType'](filter.value.type);
    })
+/*
+   const allIngredients = computed(() => {
+    return store.getters['getAllIngredients'];
+   })*/
   
+  const _getIngredientListFormatted = (allIngredients, ingredientList) => {
+    console.log('formaaaateo');
+    console.log(allIngredients);
+    console.log(ingredientList)
+    return ingredientList.reduce((acc, item) => {
+      return [...acc, {...item, name: allIngredients.find((ingredient) => ingredient._id === item._id)?.name}] 
+    }, []);
+  }
+
   const _getRecipes = async() => {
     const resp = await store.dispatch('getRecipes', {});
 
@@ -21,9 +34,19 @@ const useRecipes = () => {
   }
 
   const _getRecipesById = async(id) => {
-    const resp = await store.dispatch('getRecipesById', id);
+    const respRecipe = await store.dispatch('getRecipesById', id);
+        // coger el listado de ingredientes y de pasos
+    let ingredients = null;
+    if (!store.getters['getAllIngredients']) {
+      ingredients = (await store.dispatch('getAllIngredients'))?.ingredients;
+    }
+    
+    const all = store.getters['getAllIngredients'] || ingredients;
+    const respRecipeList =  await store.dispatch('getIngredientsListById', respRecipe.recipe.list);
+    const ingredientListFormat = _getIngredientListFormatted(all, respRecipeList?.ingredientsList?.ingredients);
 
-    return resp;
+    store.commit('recipeInfo', { recipe: respRecipe.recipe, ingredientsList: ingredientListFormat })
+    return { respRecipe, respRecipeList };
   }
   
   const recipesByFilterType = (type) => {

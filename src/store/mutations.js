@@ -27,6 +27,21 @@ export const recipesList = (state, { recipes }) => {
     state.recipes = [...recipes] || [];
 }
 
+/*
 export const recipe = (state, { recipe }) => {
     state.recipe = recipe;
+}
+
+export const recipeList = (state, { ingredientslist }) => {
+    state.recipe.ingredientslist = ingredientslist;
+}
+
+*/
+
+export const recipeInfo = (state, { recipe, ingredientsList }) => {
+    state.recipeInfo = { recipe, ingredientsList }
+}
+
+export const allIngredients = (state, allIngredientsData) => {
+    state.allIngredients = allIngredientsData;
 }
