@@ -38,8 +38,8 @@ export const recipeList = (state, { ingredientslist }) => {
 
 */
 
-export const recipeInfo = (state, { recipe, ingredientsList }) => {
-    state.recipeInfo = { recipe, ingredientsList }
+export const recipeInfo = (state, { recipe, ingredientsList, steps }) => {
+    state.recipeInfo = { recipe, ingredientsList, steps }
 }
 
 export const allIngredients = (state, allIngredientsData) => {

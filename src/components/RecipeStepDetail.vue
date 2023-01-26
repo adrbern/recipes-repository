@@ -9,10 +9,10 @@
                     </span>
                 </a>
                 <div class="living_desc desc1">
-                    <h3><a href="#">aliquam volutp</a></h3>
-                    <p>Lorem ipsum consectetuer adipiscing </p>
+                    <h3><a href="#">{{ title }}</a></h3>
+                    <p>{{ description }}</p>
                     <p class="educate"><img src="images/star1.png" alt=""/></p>
-                    <p class="price pr_box">5 minutos</p>
+                    <p class="price pr_box">{{ time }} minutos</p>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -23,6 +23,24 @@
     export default {
       name: 'RecipeStepDetail',
       components: {
+      },
+      props: {
+        img: {
+            type: String,
+            required: true,
+        },
+        title:{
+            type: String,
+            required: true,
+        },
+        description:{
+            type: String,
+            required: true,
+        },
+        time: {
+            type: String,
+            required: true,
+        }
       }
     }
     </script>

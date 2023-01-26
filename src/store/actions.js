@@ -3,6 +3,7 @@ import userApi from '@/api/userApi';
 import recipesApi from '@/api/recipesApi';
 import ingredientsListApi from '@/api/ingredientsListApi';
 import ingredientsApi from '@/api/ingredientsApi';
+import stepApi from '@/api/stepApi';
 
 
 // export const myAction = async ({ commit }) => {
@@ -87,6 +88,19 @@ export const getAllIngredients = async({commit}, id = '') => {
         return { ok: false, message: e?.response?.data?.error?.message}
     }
 }
+
+// STEP
+export const getStepById = async({commit}, id = '') => {
+    try{
+        const {data: { step }} = await stepApi.get(`${id}`, {});
+        console.log(commit);
+    
+        return { ok: true, steps: step?.steps };
+    } catch(e) {
+        return { ok: false, message: e?.response?.data?.error?.message}
+    }
+}
+
 
 
 

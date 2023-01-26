@@ -19,9 +19,6 @@ const useRecipes = () => {
    })*/
   
   const _getIngredientListFormatted = (allIngredients, ingredientList) => {
-    console.log('formaaaateo');
-    console.log(allIngredients);
-    console.log(ingredientList)
     return ingredientList.reduce((acc, item) => {
       return [...acc, {...item, name: allIngredients.find((ingredient) => ingredient._id === item._id)?.name}] 
     }, []);
@@ -37,16 +34,22 @@ const useRecipes = () => {
     const respRecipe = await store.dispatch('getRecipesById', id);
         // coger el listado de ingredientes y de pasos
     let ingredients = null;
+
     if (!store.getters['getAllIngredients']) {
       ingredients = (await store.dispatch('getAllIngredients'))?.ingredients;
     }
     
     const all = store.getters['getAllIngredients'] || ingredients;
-    const respRecipeList =  await store.dispatch('getIngredientsListById', respRecipe.recipe.list);
-    const ingredientListFormat = _getIngredientListFormatted(all, respRecipeList?.ingredientsList?.ingredients);
+    // TODo se pueden paralelizar
+    const respIngredientsList =  await store.dispatch('getIngredientsListById', respRecipe.recipe.list);
+    const respSteps = await store.dispatch('getStepById', respRecipe.recipe.stepId);
+    const ingredientListFormat = _getIngredientListFormatted(all, respIngredientsList?.ingredientsList?.ingredients);
 
-    store.commit('recipeInfo', { recipe: respRecipe.recipe, ingredientsList: ingredientListFormat })
-    return { respRecipe, respRecipeList };
+    console.log("asdasd")
+    console.log(respSteps)
+    store.commit('recipeInfo', { recipe: respRecipe.recipe, ingredientsList: ingredientListFormat, steps: respSteps?.steps });
+  
+    return { respRecipe, respIngredientsList, respSteps };
   }
   
   const recipesByFilterType = (type) => {

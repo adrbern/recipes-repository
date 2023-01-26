@@ -6,7 +6,7 @@
             <div class="container" v-if="recipe">
               {{ recipe }}
                 <RecipeStepContainer :ingredients=recipe?.ingredientsList>recipe step container ... </RecipeStepContainer>
-                <RecipeStepDetailContainer>Recipe Step detail container ... </RecipeStepDetailContainer>
+                <RecipeStepDetailContainer :steps="recipe?.steps">Recipe Step detail container ... </RecipeStepDetailContainer>
             </div>
         </div>
         <RecipeRelatedContainer>Recipe Related Container ... </RecipeRelatedContainer>
