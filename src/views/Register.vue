@@ -41,19 +41,19 @@ export default {
     },
     setup() {
         const router = useRouter();
-        const { resgistreForm, onRegister } = useRegister();
+        const { newRecipeForm, onRegister } = useRegister();
         const { userForm, onLogin } = useSession();
 
         return {
-            resgistreForm,
+            newRecipeForm,
             getRegister: async() => {
 
                 try{
                     const { ok } = await onRegister();
 
                     if(ok) {
-                        userForm.value.email = resgistreForm.value.email;
-                        userForm.value.password = resgistreForm.value.password;
+                        userForm.value.email = newRecipeForm.value.email;
+                        userForm.value.password = newRecipeForm.value.password;
 
                         await onLogin();
                         return router.replace('register-succes');
